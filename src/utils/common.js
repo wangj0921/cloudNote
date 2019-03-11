@@ -51,3 +51,10 @@ const deepClone = (obj) => {
 
 }
 
+export {
+    isNull,
+    isEmpty,
+    isClass,
+    isDate,
+    deepClone
+}
