@@ -1,4 +1,4 @@
-# my-note
+# cloud-note
 
 > A Vue.js project
 
