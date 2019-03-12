@@ -51,10 +51,71 @@ const deepClone = (obj) => {
 
 }
 
+// 获取窗口可视范围的高度
+ const getClientHeight = () => {
+    let clientHeight = 0;
+    if (document.body.clientHeight && document.documentElement.clientHeight) {
+      clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ?
+        document.body.clientHeight :
+        document.documentElement.clientHeight;
+    } else {
+      clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ?
+        document.body.clientHeight :
+        document.documentElement.clientHeight;
+    }
+    return clientHeight;
+  };
+
+  // 获取窗口可视范围的宽度
+   const getClientWidth = () => {
+    let clientWidth = 0;
+    if (document.body.clientWidth && document.documentElement.clientWidth) {
+      clientWidth = (document.body.clientWidth < document.documentElement.clientWidth) ?
+        document.body.clientWidth :
+        document.documentElement.clientWidth;
+    } else {
+      clientWidth = (document.body.clientWidth > document.documentElement.clientWidth) ?
+        document.body.clientWidth :
+        document.documentElement.clientWidth;
+    }
+    return clientWidth;
+  };
+  
+  // 获取页面滚动高度
+   const getScrollTop = () => {
+    let scrollTop = 0;
+    if (document.documentElement && document.documentElement.scrollTop) {
+      scrollTop = document.documentElement.scrollTop;
+    } else if (document.body) {
+      scrollTop = document.body.scrollTop;
+    }
+    return scrollTop;
+  };
+  
+  //
+   const getScrollHeight = () => Math.max(document.body.scrollHeight,
+    document.documentElement.scrollHeight);
+  
+   const getDocumentToBottomHeight = () => {
+    // 客户端高度
+    const height = getClientHeight();
+    // 页面滚动高度
+    const theight = getScrollTop();
+  
+    const rheight = getScrollHeight();
+    return rheight - theight - height;
+  };
+
 export {
     isNull,
     isEmpty,
     isClass,
     isDate,
-    deepClone
+    deepClone,
+    getClientHeight,
+    getClientWidth,
+    getScrollTop,
+    getScrollHeight,
+    getDocumentToBottomHeight
+
 }
