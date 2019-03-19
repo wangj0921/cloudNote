@@ -67,7 +67,7 @@ const deepClone = (obj) => {
   };
 
   // 获取窗口可视范围的宽度
-   const getClientWidth = () => {
+ const getClientWidth = () => {
     let clientWidth = 0;
     if (document.body.clientWidth && document.documentElement.clientWidth) {
       clientWidth = (document.body.clientWidth < document.documentElement.clientWidth) ?
@@ -117,5 +117,4 @@ export {
     getScrollTop,
     getScrollHeight,
     getDocumentToBottomHeight
-
 }
